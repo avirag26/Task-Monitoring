@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --color-ink: #0f1c1a;
+  --color-slate-ink: #243532;
+  --color-mist: #e8efed;
+  --color-fog: #f4f8f7;
+  --color-pine: #1a6b5c;
+  --color-pine-deep: #0f4a3f;
+  --color-sea: #2a9d8f;
+  --color-amber-soft: #f0b429;
+  --color-coral: #e07a5f;
+  --color-line: #c9d6d2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #d4ebe6 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #f7e8d8 0%, transparent 50%),
+    linear-gradient(180deg, #f7faf9 0%, #eef4f2 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.35s ease-out both;
+}
+
+.sheet-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.sheet-scroll::-webkit-scrollbar-thumb {
+  background: #a8bfb8;
+  border-radius: 4px;
+}
