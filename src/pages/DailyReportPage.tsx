@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { format, parseISO } from 'date-fns';
 import { Clock, Mail, Save, Sparkles } from 'lucide-react';
 import api from '../lib/api';
