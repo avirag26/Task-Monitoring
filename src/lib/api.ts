@@ -1,7 +1,17 @@
 import axios from 'axios';
 
+function resolveApiBaseUrl(): string {
+  const raw = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
+  if (!raw) return '/api';
+
+  const cleaned = raw.replace(/\/+$/, '');
+  // Nest uses global prefix /api — accept either with or without it
+  if (cleaned.endsWith('/api')) return cleaned;
+  return `${cleaned}/api`;
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: resolveApiBaseUrl(),
 });
 
 api.interceptors.request.use((config) => {
